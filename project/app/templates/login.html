@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="disdata('{{ key1|safe }}')">
+    
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Number</th>
+                <th>Password</th>
+                <th>Con_Password</th>
+            </tr>
+        </thead>
+        <tbody id="registdata">
+            <!-- Data will be populated here dynamically -->
+        </tbody>
+    </table>
+</div>
+
+<script> 
+   async function disdata(data){
+      document.getElementById('registdata').innerHTML=data.map(key=>{
+       return `<tr>
+            <td>${key.Name}</td>
+            <td>${key.Email}</td>
+            <td>${key.Number}</td>
+            <td>${key.Password}</td>
+            <td>${key.Con_Password}</td>
+        </tr>`
+      }).join(" ");
+   };
+    
+</script>
+
+</body>
+</html>
